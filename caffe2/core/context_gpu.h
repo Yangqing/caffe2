@@ -27,7 +27,6 @@ enum class CudaMemoryPoolType {
 CudaMemoryPoolType GetCudaMemoryPoolType();
 
 
-
 /**
  * A struct to host thread-local cuda objects.
  *
