@@ -55,7 +55,11 @@ struct DefaultCPUAllocator final : CPUAllocator {
     memset(data, 0, nbytes);
     return data;
   }
+#if defined(_MSC_VER)
+  void Delete(void* data) override { _aligned_free(data); }
+#else
   void Delete(void* data) override { free(data); }
+#endif
 };
 
 // Get the CPU Alloctor.
